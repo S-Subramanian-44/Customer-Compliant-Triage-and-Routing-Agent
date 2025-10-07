@@ -1,0 +1,144 @@
+2025-10-07 16:48:20,690 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:48:56,878 - ERROR - app.llm_utils - LLM rate limit reached: status=429, setting global cooldown until 2025-10-08 06:58:24.878566 (retry_after=70768)
+2025-10-07 16:48:56,880 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:48:56,914 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:48:57,126 - INFO - app.utils.router - Processed complaint 1, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:49:01,742 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:01,743 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:01,744 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:01,873 - INFO - app.utils.router - Processed complaint 2, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:06,233 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:06,233 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:06,234 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:06,399 - INFO - app.utils.router - Processed complaint 3, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:10,591 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:10,592 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:10,592 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:10,720 - INFO - app.utils.router - Processed complaint 4, categories=['Technical Issue'], severity=Medium, dept=Technical Support
+2025-10-07 16:49:15,514 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:15,515 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:15,515 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:15,633 - INFO - app.utils.router - Processed complaint 5, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:49:19,764 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:19,765 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:19,766 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:19,882 - INFO - app.utils.router - Processed complaint 6, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:49:23,981 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:23,982 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:23,982 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:24,113 - INFO - app.utils.router - Processed complaint 7, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:28,292 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:28,292 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:28,295 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:28,409 - INFO - app.utils.router - Processed complaint 8, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:49:32,848 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:32,848 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:32,853 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:32,964 - INFO - app.utils.router - Processed complaint 9, categories=['Delivery Problem'], severity=Medium, dept=Logistics
+2025-10-07 16:49:37,062 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:37,063 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:37,064 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:37,169 - INFO - app.utils.router - Processed complaint 10, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:41,322 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:41,323 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:41,326 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:41,441 - INFO - app.utils.router - Processed complaint 11, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:49:45,429 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:45,430 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:45,445 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:45,559 - INFO - app.utils.router - Processed complaint 12, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:49,290 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:49,291 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:49,294 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:49,413 - INFO - app.utils.router - Processed complaint 13, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:49:53,899 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:53,900 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:53,904 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:54,029 - INFO - app.utils.router - Processed complaint 14, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:49:58,120 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:58,120 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:58,121 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:49:58,238 - INFO - app.utils.router - Processed complaint 15, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:50:02,527 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:02,527 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:02,528 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:02,634 - INFO - app.utils.router - Processed complaint 16, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 16:50:07,154 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:07,155 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:07,160 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:07,280 - INFO - app.utils.router - Processed complaint 17, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:50:11,435 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:11,435 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:11,439 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:11,563 - INFO - app.utils.router - Processed complaint 18, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:50:15,638 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:15,639 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:15,640 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:15,757 - INFO - app.utils.router - Processed complaint 19, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 16:50:19,990 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:19,991 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:19,998 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:20,120 - INFO - app.utils.router - Processed complaint 20, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:50:24,315 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:24,316 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:24,317 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:24,433 - INFO - app.utils.router - Processed complaint 21, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:50:28,460 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:28,460 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:28,463 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:28,578 - INFO - app.utils.router - Processed complaint 22, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:50:32,555 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:32,556 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:32,558 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:24.878566, skipping call
+2025-10-07 16:50:32,684 - INFO - app.utils.router - Processed complaint 23, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:53:50,370 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:53:55,111 - ERROR - app.llm_utils - LLM rate limit reached: status=429, setting global cooldown until 2025-10-08 06:58:25.111371 (retry_after=70470)
+2025-10-07 16:53:55,115 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:53:55,155 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:53:55,355 - INFO - app.utils.router - Processed complaint 24, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:53:59,597 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:53:59,597 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:53:59,601 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:53:59,725 - INFO - app.utils.router - Processed complaint 25, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:54:03,585 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:54:03,586 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:54:03,589 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.111371, skipping call
+2025-10-07 16:54:04,040 - INFO - app.utils.router - Processed complaint 26, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 17:13:37,434 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 17:13:41,838 - ERROR - app.llm_utils - LLM rate limit reached: status=429, setting global cooldown until 2025-10-08 06:58:25.838822 (retry_after=69284)
+2025-10-07 17:13:41,846 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.838822, skipping call
+2025-10-07 17:13:41,886 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.838822, skipping call
+2025-10-07 17:13:42,196 - INFO - app.utils.router - Processed complaint 27, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 17:15:40,099 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 17:15:44,383 - ERROR - app.llm_utils - LLM HTTP error 413: {"error":{"code":"tokens_limit_reached","message":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens.","details":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens."}}
+2025-10-07 17:15:46,563 - ERROR - app.llm_utils - LLM HTTP error 413: {"error":{"code":"tokens_limit_reached","message":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens.","details":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens."}}
+2025-10-07 17:15:48,737 - ERROR - app.llm_utils - LLM HTTP error 413: {"error":{"code":"tokens_limit_reached","message":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens.","details":"Request body too large for gpt-4.1-mini model. Max size: 8000 tokens."}}
+2025-10-07 17:15:48,938 - INFO - app.utils.router - Processed complaint 28, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 17:15:54,765 - ERROR - app.llm_utils - LLM rate limit reached: status=429, setting global cooldown until 2025-10-08 06:58:25.765613 (retry_after=69151)
+2025-10-07 17:15:54,768 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:15:54,771 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:15:54,984 - INFO - app.utils.router - Processed complaint 29, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 17:15:59,177 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:15:59,178 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:15:59,180 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:15:59,305 - INFO - app.utils.router - Processed complaint 30, categories=['Others'], severity=High, dept=General Support
+2025-10-07 17:16:03,427 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:03,428 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:03,433 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:03,554 - INFO - app.utils.router - Processed complaint 31, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 17:16:07,940 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:07,942 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:07,947 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:08,060 - INFO - app.utils.router - Processed complaint 32, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 17:16:12,223 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:12,224 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:12,225 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:12,342 - INFO - app.utils.router - Processed complaint 33, categories=['Delivery Problem'], severity=Medium, dept=Logistics
+2025-10-07 17:16:16,123 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:16,124 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:16,128 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:16,248 - INFO - app.utils.router - Processed complaint 34, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 17:16:20,379 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:20,380 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:20,382 - WARNING - app.llm_utils - LLM global cooldown active until 2025-10-08 06:58:25.765613, skipping call
+2025-10-07 17:16:20,508 - INFO - app.utils.router - Processed complaint 35, categories=['Service Quality'], severity=Low, dept=Customer Experience

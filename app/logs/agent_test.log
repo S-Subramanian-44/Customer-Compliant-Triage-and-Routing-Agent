@@ -1,0 +1,556 @@
+2025-10-07 15:59:00,624 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 15:59:05,232 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73760 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73760 seconds before retrying."}}
+2025-10-07 15:59:26,191 - ERROR - app.llm_utils - LLM call failed: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\llm_utils.py", line 63, in call_llm
+    resp = requests.post(url, headers=headers, json=payload, timeout=config.LLM_TIMEOUT)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+2025-10-07 15:59:27,722 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73738 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73738 seconds before retrying."}}
+2025-10-07 15:59:27,876 - INFO - app.utils.router - Processed complaint 1, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 15:59:34,408 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73731 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73731 seconds before retrying."}}
+2025-10-07 15:59:35,762 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73730 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73730 seconds before retrying."}}
+2025-10-07 15:59:37,268 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73728 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73728 seconds before retrying."}}
+2025-10-07 15:59:37,422 - INFO - app.utils.router - Processed complaint 2, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 15:59:43,875 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73722 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73722 seconds before retrying."}}
+2025-10-07 15:59:45,292 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73720 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73720 seconds before retrying."}}
+2025-10-07 15:59:46,647 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73719 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73719 seconds before retrying."}}
+2025-10-07 15:59:46,823 - INFO - app.utils.router - Processed complaint 3, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 15:59:55,456 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73710 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73710 seconds before retrying."}}
+2025-10-07 15:59:56,815 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73709 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73709 seconds before retrying."}}
+2025-10-07 15:59:58,194 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73707 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73707 seconds before retrying."}}
+2025-10-07 15:59:58,323 - INFO - app.utils.router - Processed complaint 4, categories=['Billing Issue', 'Service Quality'], severity=Low, dept=Accounts
+2025-10-07 16:00:04,264 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73701 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73701 seconds before retrying."}}
+2025-10-07 16:00:05,879 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73700 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73700 seconds before retrying."}}
+2025-10-07 16:00:07,267 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73698 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73698 seconds before retrying."}}
+2025-10-07 16:00:07,763 - INFO - app.utils.router - Processed complaint 5, categories=['Technical Issue', 'Service Quality'], severity=Medium, dept=Technical Support
+2025-10-07 16:00:13,404 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73692 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73692 seconds before retrying."}}
+2025-10-07 16:00:34,449 - ERROR - app.llm_utils - LLM call failed: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\llm_utils.py", line 63, in call_llm
+    resp = requests.post(url, headers=headers, json=payload, timeout=config.LLM_TIMEOUT)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+2025-10-07 16:00:36,008 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73669 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73669 seconds before retrying."}}
+2025-10-07 16:00:37,355 - INFO - app.utils.router - Processed complaint 6, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 16:00:43,039 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73662 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73662 seconds before retrying."}}
+2025-10-07 16:00:44,713 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73661 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73661 seconds before retrying."}}
+2025-10-07 16:00:46,393 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73659 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73659 seconds before retrying."}}
+2025-10-07 16:00:47,186 - INFO - app.utils.router - Processed complaint 7, categories=['Delivery Problem'], severity=Medium, dept=Logistics
+2025-10-07 16:00:54,638 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73651 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73651 seconds before retrying."}}
+2025-10-07 16:00:56,308 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73649 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73649 seconds before retrying."}}
+2025-10-07 16:00:57,830 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73648 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73648 seconds before retrying."}}
+2025-10-07 16:00:58,278 - INFO - app.utils.router - Processed complaint 8, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:01:04,174 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73641 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73641 seconds before retrying."}}
+2025-10-07 16:01:05,839 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73640 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73640 seconds before retrying."}}
+2025-10-07 16:01:07,379 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73638 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73638 seconds before retrying."}}
+2025-10-07 16:01:07,865 - INFO - app.utils.router - Processed complaint 9, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:01:13,891 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73632 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73632 seconds before retrying."}}
+2025-10-07 16:01:15,372 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73630 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73630 seconds before retrying."}}
+2025-10-07 16:01:16,915 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73628 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73628 seconds before retrying."}}
+2025-10-07 16:01:17,407 - INFO - app.utils.router - Processed complaint 10, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:01:23,118 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73622 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73622 seconds before retrying."}}
+2025-10-07 16:01:24,690 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73621 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73621 seconds before retrying."}}
+2025-10-07 16:01:26,230 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73619 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73619 seconds before retrying."}}
+2025-10-07 16:01:26,743 - INFO - app.utils.router - Processed complaint 11, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:01:32,999 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73612 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73612 seconds before retrying."}}
+2025-10-07 16:01:34,415 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73611 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73611 seconds before retrying."}}
+2025-10-07 16:01:36,089 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73609 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73609 seconds before retrying."}}
+2025-10-07 16:01:36,204 - INFO - app.utils.router - Processed complaint 12, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:01:41,984 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73603 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73603 seconds before retrying."}}
+2025-10-07 16:01:43,475 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73602 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73602 seconds before retrying."}}
+2025-10-07 16:01:44,955 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73600 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73600 seconds before retrying."}}
+2025-10-07 16:01:45,403 - INFO - app.utils.router - Processed complaint 13, categories=['Delivery Problem', 'Service Quality'], severity=Medium, dept=Logistics
+2025-10-07 16:01:51,406 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73594 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73594 seconds before retrying."}}
+2025-10-07 16:01:52,953 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73592 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73592 seconds before retrying."}}
+2025-10-07 16:01:54,457 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 12 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 12 seconds before retrying."}}
+2025-10-07 16:01:54,641 - INFO - app.utils.router - Processed complaint 14, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:02:00,822 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 6 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 6 seconds before retrying."}}
+2025-10-07 16:02:02,503 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 4 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 4 seconds before retrying."}}
+2025-10-07 16:02:04,271 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 3 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 3 seconds before retrying."}}
+2025-10-07 16:02:04,776 - INFO - app.utils.router - Processed complaint 15, categories=['Delivery Problem'], severity=Medium, dept=Logistics
+2025-10-07 16:02:10,930 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73574 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73574 seconds before retrying."}}
+2025-10-07 16:02:12,637 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73573 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73573 seconds before retrying."}}
+2025-10-07 16:02:14,182 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73571 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73571 seconds before retrying."}}
+2025-10-07 16:02:15,987 - INFO - app.utils.router - Processed complaint 16, categories=['Delivery Problem'], severity=Medium, dept=Logistics
+2025-10-07 16:02:21,907 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73563 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73563 seconds before retrying."}}
+2025-10-07 16:02:23,436 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73562 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73562 seconds before retrying."}}
+2025-10-07 16:02:24,965 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73560 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73560 seconds before retrying."}}
+2025-10-07 16:02:25,086 - INFO - app.utils.router - Processed complaint 17, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:02:30,629 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73555 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73555 seconds before retrying."}}
+2025-10-07 16:02:31,928 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73553 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73553 seconds before retrying."}}
+2025-10-07 16:02:33,266 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73552 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73552 seconds before retrying."}}
+2025-10-07 16:02:33,789 - INFO - app.utils.router - Processed complaint 18, categories=['Service Quality'], severity=Urgent, dept=Customer Experience
+2025-10-07 16:02:39,517 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73546 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73546 seconds before retrying."}}
+2025-10-07 16:02:40,865 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73545 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73545 seconds before retrying."}}
+2025-10-07 16:02:42,260 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73543 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73543 seconds before retrying."}}
+2025-10-07 16:02:42,697 - INFO - app.utils.router - Processed complaint 19, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:02:47,962 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73537 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73537 seconds before retrying."}}
+2025-10-07 16:02:49,312 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73536 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 73536 seconds before retrying."}}
+2025-10-07 16:02:50,698 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 20 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 20 seconds before retrying."}}
+2025-10-07 16:02:51,214 - INFO - app.utils.router - Processed complaint 20, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:02:57,298 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 13 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 13 seconds before retrying."}}
+2025-10-07 16:02:58,662 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 12 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 12 seconds before retrying."}}
+2025-10-07 16:03:00,072 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 10 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 10 seconds before retrying."}}
+2025-10-07 16:03:00,581 - INFO - app.utils.router - Processed complaint 21, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:17:27,757 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:17:33,482 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72652 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72652 seconds before retrying."}}
+2025-10-07 16:17:35,352 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72650 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72650 seconds before retrying."}}
+2025-10-07 16:17:36,707 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72649 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72649 seconds before retrying."}}
+2025-10-07 16:17:37,243 - INFO - app.utils.router - Processed complaint 22, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:17:47,293 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72638 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72638 seconds before retrying."}}
+2025-10-07 16:17:48,815 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72637 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72637 seconds before retrying."}}
+2025-10-07 16:17:50,094 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72635 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72635 seconds before retrying."}}
+2025-10-07 16:17:51,444 - INFO - app.utils.router - Processed complaint 23, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:17:59,816 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72626 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72626 seconds before retrying."}}
+2025-10-07 16:18:01,299 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72624 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72624 seconds before retrying."}}
+2025-10-07 16:18:02,611 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72623 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72623 seconds before retrying."}}
+2025-10-07 16:21:22,701 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:21:25,505 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:25,506 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_8b1e42ec73354387bb13a2e25a2a5aa7.eml
+2025-10-07 16:21:25,508 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_8b1e42ec73354387bb13a2e25a2a5aa7.eml.meta.json
+2025-10-07 16:21:25,509 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:25,510 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-f47ec793042d422cbffd66811e49ef68.json
+2025-10-07 16:21:27,327 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72418 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72418 seconds before retrying."}}
+2025-10-07 16:21:28,727 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72417 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72417 seconds before retrying."}}
+2025-10-07 16:21:30,361 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72415 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72415 seconds before retrying."}}
+2025-10-07 16:21:30,567 - INFO - app.utils.router - Processed complaint 25, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:21:35,820 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:35,823 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_bd63607942c84a9b8f5c20045eb24314.eml
+2025-10-07 16:21:35,825 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_bd63607942c84a9b8f5c20045eb24314.eml.meta.json
+2025-10-07 16:21:35,826 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:35,827 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-a7fa6819165b4724815447e7d707cbac.json
+2025-10-07 16:21:37,410 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72408 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72408 seconds before retrying."}}
+2025-10-07 16:21:38,703 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72407 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72407 seconds before retrying."}}
+2025-10-07 16:21:40,029 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72405 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72405 seconds before retrying."}}
+2025-10-07 16:21:40,559 - INFO - app.utils.router - Processed complaint 26, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:21:44,497 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:44,499 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_f17edd6ac34942c2a8010266d8ed181b.eml
+2025-10-07 16:21:44,501 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_f17edd6ac34942c2a8010266d8ed181b.eml.meta.json
+2025-10-07 16:21:44,502 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:44,504 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-30d5c8475f7845da89c2968d0dc3914c.json
+2025-10-07 16:21:46,088 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72399 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72399 seconds before retrying."}}
+2025-10-07 16:21:47,590 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72398 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72398 seconds before retrying."}}
+2025-10-07 16:21:48,906 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72396 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72396 seconds before retrying."}}
+2025-10-07 16:21:49,356 - INFO - app.utils.router - Processed complaint 27, categories=['Delivery Problem', 'Service Quality'], severity=Medium, dept=Logistics
+2025-10-07 16:21:53,404 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:53,406 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_e9a3ab5db24342eba864c6d4d985ff09.eml
+2025-10-07 16:21:53,409 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_e9a3ab5db24342eba864c6d4d985ff09.eml.meta.json
+2025-10-07 16:21:53,410 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:21:53,412 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-409e087ad2334294a251c642d4cffed9.json
+2025-10-07 16:27:32,979 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:27:35,611 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:35,612 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_7ab5ef695c9646a9ab8e4eeb20f4aa0a.eml
+2025-10-07 16:27:35,614 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_7ab5ef695c9646a9ab8e4eeb20f4aa0a.eml.meta.json
+2025-10-07 16:27:35,614 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:35,616 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-8b19ef3db3a64f7ca1f024bf8a19f860.json
+2025-10-07 16:27:37,358 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72048 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72048 seconds before retrying."}}
+2025-10-07 16:27:38,975 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72046 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72046 seconds before retrying."}}
+2025-10-07 16:27:40,456 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72045 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72045 seconds before retrying."}}
+2025-10-07 16:27:40,663 - INFO - app.utils.router - Processed complaint 29, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:27:45,123 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:45,124 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d0be91229c0843718b06229daac88840.eml
+2025-10-07 16:27:45,126 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d0be91229c0843718b06229daac88840.eml.meta.json
+2025-10-07 16:27:45,126 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:45,128 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-225241c033d6442f8b0bb16cecb6df9a.json
+2025-10-07 16:27:46,547 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72039 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72039 seconds before retrying."}}
+2025-10-07 16:27:47,848 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72038 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72038 seconds before retrying."}}
+2025-10-07 16:27:49,352 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72036 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72036 seconds before retrying."}}
+2025-10-07 16:27:49,788 - INFO - app.utils.router - Processed complaint 30, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:27:53,912 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:53,914 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_55f800f37f464cb88ce53291acc30f64.eml
+2025-10-07 16:27:53,915 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_55f800f37f464cb88ce53291acc30f64.eml.meta.json
+2025-10-07 16:27:53,916 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:27:53,917 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-db7641dc7f524908b75644ced0330469.json
+2025-10-07 16:27:55,752 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72030 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72030 seconds before retrying."}}
+2025-10-07 16:27:57,202 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72028 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72028 seconds before retrying."}}
+2025-10-07 16:27:58,495 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72027 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72027 seconds before retrying."}}
+2025-10-07 16:27:58,931 - INFO - app.utils.router - Processed complaint 31, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 16:28:03,239 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:03,243 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_c0a9fa25f11e418691756125d4043445.eml
+2025-10-07 16:28:03,244 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_c0a9fa25f11e418691756125d4043445.eml.meta.json
+2025-10-07 16:28:03,245 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:03,246 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-d17952cdf591446c910b0d5b94cfc8f8.json
+2025-10-07 16:28:04,749 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72021 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72021 seconds before retrying."}}
+2025-10-07 16:28:06,208 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72019 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72019 seconds before retrying."}}
+2025-10-07 16:28:07,575 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72018 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72018 seconds before retrying."}}
+2025-10-07 16:28:07,688 - INFO - app.utils.router - Processed complaint 32, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:28:11,671 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:11,674 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_4f61b6223b7149e6b877c9e2079413d3.eml
+2025-10-07 16:28:11,676 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_4f61b6223b7149e6b877c9e2079413d3.eml.meta.json
+2025-10-07 16:28:11,677 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:11,678 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-cd8c24755801467887afd8bc4e899b52.json
+2025-10-07 16:28:13,191 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72012 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72012 seconds before retrying."}}
+2025-10-07 16:28:14,538 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72011 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72011 seconds before retrying."}}
+2025-10-07 16:28:15,873 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72010 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 72010 seconds before retrying."}}
+2025-10-07 16:28:16,313 - INFO - app.utils.router - Processed complaint 33, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:28:20,167 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:20,169 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_3c2d926eddeb462f92c1617f4b8cd03a.eml
+2025-10-07 16:28:20,171 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_3c2d926eddeb462f92c1617f4b8cd03a.eml.meta.json
+2025-10-07 16:28:20,172 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:20,174 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-78c0a6ce08684f3594612d36ea396c36.json
+2025-10-07 16:28:21,954 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 15 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 15 seconds before retrying."}}
+2025-10-07 16:28:42,929 - ERROR - app.llm_utils - LLM call failed: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\llm_utils.py", line 63, in call_llm
+    resp = requests.post(url, headers=headers, json=payload, timeout=config.LLM_TIMEOUT)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\.venv\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='models.github.ai', port=443): Read timed out. (read timeout=20)
+2025-10-07 16:28:44,419 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71981 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71981 seconds before retrying."}}
+2025-10-07 16:28:44,923 - INFO - app.utils.router - Processed complaint 34, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:28:49,964 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:49,965 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_c063e3c7e16543849ee1a19ff3450e91.eml
+2025-10-07 16:28:49,968 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_c063e3c7e16543849ee1a19ff3450e91.eml.meta.json
+2025-10-07 16:28:49,969 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:49,970 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-9d9c70b7f58a4ca0b60fafe4276861b7.json
+2025-10-07 16:28:51,604 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71974 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71974 seconds before retrying."}}
+2025-10-07 16:28:53,128 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71972 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71972 seconds before retrying."}}
+2025-10-07 16:28:54,581 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71971 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71971 seconds before retrying."}}
+2025-10-07 16:28:55,026 - INFO - app.utils.router - Processed complaint 35, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:28:58,810 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:58,811 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_ff53e3c947944a9988674b875f4731b1.eml
+2025-10-07 16:28:58,814 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_ff53e3c947944a9988674b875f4731b1.eml.meta.json
+2025-10-07 16:28:58,814 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:28:58,816 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-71e702f6df39451ca39199b465fcc5ae.json
+2025-10-07 16:29:00,400 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71965 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71965 seconds before retrying."}}
+2025-10-07 16:29:01,942 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71963 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71963 seconds before retrying."}}
+2025-10-07 16:29:03,324 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71962 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71962 seconds before retrying."}}
+2025-10-07 16:29:03,451 - INFO - app.utils.router - Processed complaint 36, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:29:08,497 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:08,498 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_23668957e53448ed95b4b67f8cff7c11.eml
+2025-10-07 16:29:08,499 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_23668957e53448ed95b4b67f8cff7c11.eml.meta.json
+2025-10-07 16:29:08,500 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:08,503 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-ab179d622f94410fbeabb42b382a6188.json
+2025-10-07 16:29:10,116 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71955 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71955 seconds before retrying."}}
+2025-10-07 16:29:11,583 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71954 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71954 seconds before retrying."}}
+2025-10-07 16:29:13,130 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71952 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71952 seconds before retrying."}}
+2025-10-07 16:29:13,653 - INFO - app.utils.router - Processed complaint 37, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:29:18,545 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:18,560 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_1eac03255546406ca9049aaba45730e8.eml
+2025-10-07 16:29:18,562 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_1eac03255546406ca9049aaba45730e8.eml.meta.json
+2025-10-07 16:29:18,562 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:18,563 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-be558b6d13e54c66b52eead66ff64d1d.json
+2025-10-07 16:29:20,194 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71945 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71945 seconds before retrying."}}
+2025-10-07 16:29:21,566 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71944 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71944 seconds before retrying."}}
+2025-10-07 16:29:22,938 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71942 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71942 seconds before retrying."}}
+2025-10-07 16:29:23,465 - INFO - app.utils.router - Processed complaint 38, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:29:29,094 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:29,096 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_575775099e4948a4be4c6fa9d8c08c93.eml
+2025-10-07 16:29:29,098 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_575775099e4948a4be4c6fa9d8c08c93.eml.meta.json
+2025-10-07 16:29:29,099 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:29,101 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-972059e01d1a4cdc832d414892a421f5.json
+2025-10-07 16:29:30,700 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71935 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71935 seconds before retrying."}}
+2025-10-07 16:29:32,000 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71933 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71933 seconds before retrying."}}
+2025-10-07 16:29:33,324 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 11 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 11 seconds before retrying."}}
+2025-10-07 16:29:33,861 - INFO - app.utils.router - Processed complaint 39, categories=['Product Defect', 'Service Quality'], severity=High, dept=Product Engineering
+2025-10-07 16:29:38,407 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:38,409 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_3c743ad436ed4d7db2290d731d5e07ce.eml
+2025-10-07 16:29:38,411 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_3c743ad436ed4d7db2290d731d5e07ce.eml.meta.json
+2025-10-07 16:29:38,412 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:38,413 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-852c5e13860846728f75ebf65ec6e9e5.json
+2025-10-07 16:29:39,907 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 4 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 4 seconds before retrying."}}
+2025-10-07 16:29:41,295 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 3 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 3 seconds before retrying."}}
+2025-10-07 16:29:42,575 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 1 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 1 seconds before retrying."}}
+2025-10-07 16:29:43,106 - INFO - app.utils.router - Processed complaint 40, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:29:49,399 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:49,400 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_5e4ccec85d744cd0a9445e7e0a891dc0.eml
+2025-10-07 16:29:49,401 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_5e4ccec85d744cd0a9445e7e0a891dc0.eml.meta.json
+2025-10-07 16:29:49,402 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:49,403 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-d52347d0b7b546709f280d4abed91bd7.json
+2025-10-07 16:29:50,930 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71914 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71914 seconds before retrying."}}
+2025-10-07 16:29:52,479 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71913 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71913 seconds before retrying."}}
+2025-10-07 16:29:53,965 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71911 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71911 seconds before retrying."}}
+2025-10-07 16:29:54,225 - INFO - app.utils.router - Processed complaint 41, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:29:59,647 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:59,648 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_4834a03acd47413aa3726a121c65f9c7.eml
+2025-10-07 16:29:59,650 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_4834a03acd47413aa3726a121c65f9c7.eml.meta.json
+2025-10-07 16:29:59,651 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:29:59,653 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-648a434950d84a1ca3b3dcbc1c1aba03.json
+2025-10-07 16:30:01,280 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71904 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71904 seconds before retrying."}}
+2025-10-07 16:30:02,707 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71903 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71903 seconds before retrying."}}
+2025-10-07 16:30:04,009 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71901 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71901 seconds before retrying."}}
+2025-10-07 16:30:04,530 - INFO - app.utils.router - Processed complaint 42, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:30:09,336 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:09,340 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_ec034fdc2f254235aadde04e2d5f98b8.eml
+2025-10-07 16:30:09,347 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_ec034fdc2f254235aadde04e2d5f98b8.eml.meta.json
+2025-10-07 16:30:09,351 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:09,355 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-f0e1ae4e766d450f990159be6cfe9831.json
+2025-10-07 16:30:11,266 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71894 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71894 seconds before retrying."}}
+2025-10-07 16:30:12,757 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71893 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71893 seconds before retrying."}}
+2025-10-07 16:30:14,351 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71891 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71891 seconds before retrying."}}
+2025-10-07 16:30:14,797 - INFO - app.utils.router - Processed complaint 43, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:30:19,608 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:19,611 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_8d411b000b4c42b1aaf998d46626f733.eml
+2025-10-07 16:30:19,614 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_8d411b000b4c42b1aaf998d46626f733.eml.meta.json
+2025-10-07 16:30:19,615 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:19,617 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-5ed0a13f411c440395b8d9f9bed981b6.json
+2025-10-07 16:30:21,265 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71884 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71884 seconds before retrying."}}
+2025-10-07 16:30:22,891 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71882 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71882 seconds before retrying."}}
+2025-10-07 16:30:24,437 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71881 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71881 seconds before retrying."}}
+2025-10-07 16:30:24,666 - INFO - app.utils.router - Processed complaint 44, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:30:28,924 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:29,006 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_26495800ae86463fa09394328fd38b15.eml
+2025-10-07 16:30:29,009 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_26495800ae86463fa09394328fd38b15.eml.meta.json
+2025-10-07 16:30:29,011 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:29,014 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-f440a175e2c54ba9af7e94afd38339d6.json
+2025-10-07 16:30:30,492 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71875 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71875 seconds before retrying."}}
+2025-10-07 16:30:31,825 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71874 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71874 seconds before retrying."}}
+2025-10-07 16:30:33,176 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71872 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71872 seconds before retrying."}}
+2025-10-07 16:30:33,677 - INFO - app.utils.router - Processed complaint 45, categories=['Others'], severity=Medium, dept=General Support
+2025-10-07 16:30:39,912 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:39,914 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d261715e2f85452b93a7d4d01faae502.eml
+2025-10-07 16:30:39,918 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d261715e2f85452b93a7d4d01faae502.eml.meta.json
+2025-10-07 16:30:39,919 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:39,920 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-0c109b66c7e04353bd2a3f82c01f4099.json
+2025-10-07 16:30:41,526 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 9 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 9 seconds before retrying."}}
+2025-10-07 16:30:42,871 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 8 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 8 seconds before retrying."}}
+2025-10-07 16:30:44,156 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 6 seconds before retrying.","details":"Rate limit of 15 per 60s exceeded for UserByModelByMinute. Please wait 6 seconds before retrying."}}
+2025-10-07 16:30:44,366 - INFO - app.utils.router - Processed complaint 46, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:30:50,733 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:50,735 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_01eb09f188e94efb8d55255294f130e4.eml
+2025-10-07 16:30:50,737 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_01eb09f188e94efb8d55255294f130e4.eml.meta.json
+2025-10-07 16:30:50,738 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:30:50,741 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-6dc6abda222044f6ac7e8bcafd1e0635.json
+2025-10-07 16:30:52,634 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71853 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71853 seconds before retrying."}}
+2025-10-07 16:30:54,024 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71851 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71851 seconds before retrying."}}
+2025-10-07 16:30:55,433 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71850 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71850 seconds before retrying."}}
+2025-10-07 16:30:56,019 - INFO - app.utils.router - Processed complaint 47, categories=['Service Quality'], severity=Low, dept=Customer Experience
+2025-10-07 16:31:01,685 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:01,687 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_cb5ef118ca0744bc96fdfce2cadfb3c8.eml
+2025-10-07 16:31:01,689 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_cb5ef118ca0744bc96fdfce2cadfb3c8.eml.meta.json
+2025-10-07 16:31:01,690 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:01,692 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-558bf97394af42f186d08c9c1de12de2.json
+2025-10-07 16:31:03,486 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71842 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71842 seconds before retrying."}}
+2025-10-07 16:31:04,905 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71840 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71840 seconds before retrying."}}
+2025-10-07 16:31:06,269 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71839 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71839 seconds before retrying."}}
+2025-10-07 16:31:06,701 - INFO - app.utils.router - Processed complaint 48, categories=['Service Quality'], severity=Medium, dept=Customer Experience
+2025-10-07 16:31:11,269 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:11,403 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d8916d6f687c4e3db5100b00fa2ce257.eml
+2025-10-07 16:31:11,405 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_d8916d6f687c4e3db5100b00fa2ce257.eml.meta.json
+2025-10-07 16:31:11,406 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:11,407 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-f6b5293dd911474eab679a728a97cd02.json
+2025-10-07 16:31:13,193 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71832 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71832 seconds before retrying."}}
+2025-10-07 16:31:15,469 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71830 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71830 seconds before retrying."}}
+2025-10-07 16:31:16,886 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71828 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71828 seconds before retrying."}}
+2025-10-07 16:31:17,431 - INFO - app.utils.router - Processed complaint 49, categories=['Others'], severity=Low, dept=General Support
+2025-10-07 16:31:23,050 - WARNING - app.utils.storage - MinIO upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:23,051 - INFO - app.utils.storage - Wrote object to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_b8088da62c63410ca99554f9f454f88c.eml
+2025-10-07 16:31:23,052 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\raw_emails_b8088da62c63410ca99554f9f454f88c.eml.meta.json
+2025-10-07 16:31:23,053 - WARNING - app.utils.storage - MinIO JSON upload failed or not configured; falling back to local stub: No module named 'minio'
+2025-10-07 16:31:23,056 - INFO - app.utils.storage - Wrote JSON to local stub: D:\CIT\SEM 9\Placements\Customer Compliant Triage and Routing Agent\app\minio_stub\inbox_complaint-d0337ea7cd504d92924b885b6acc7a4a.json
+2025-10-07 16:31:25,974 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71819 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71819 seconds before retrying."}}
+2025-10-07 16:43:36,740 - INFO - app.sla_monitor - SLA check completed, violations=0
+2025-10-07 16:43:40,718 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71085 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71085 seconds before retrying."}}
+2025-10-07 16:43:42,177 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71083 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71083 seconds before retrying."}}
+2025-10-07 16:43:43,522 - ERROR - app.llm_utils - LLM HTTP error 429: {"error":{"code":"RateLimitReached","message":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71082 seconds before retrying.","details":"Rate limit of 150 per 86400s exceeded for UserByModelByDay. Please wait 71082 seconds before retrying."}}
+2025-10-07 16:43:45,169 - INFO - app.utils.router - Processed complaint 51, categories=['Others'], severity=Low, dept=General Support

@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+sqlalchemy
+requests
+textblob
+python-dotenv
+apscheduler
+pydantic
+
+# stdlib email/imaplib/smtplib are used
+pytest
+pytest-httpx
